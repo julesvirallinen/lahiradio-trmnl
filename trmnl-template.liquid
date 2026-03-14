@@ -8,7 +8,14 @@
     <div class="description">Ei ohjelmaa seuraavaan 24h</div>
   {% else %}
     {% assign first = true %}
+    {% assign current_day = "" %}
     {% for prog in programs %}
+      {% if prog.day != current_day %}
+        {% unless first %}
+          <div class="item item--divider"><span class="label">{{ prog.day }}</span></div>
+        {% endunless %}
+        {% assign current_day = prog.day %}
+      {% endif %}
       <div class="item{% if first %} item--highlight{% endif %}">
         <span class="label label--underline">{{ prog.time }}</span>
         <span class="description">{{ prog.title }}</span>
