@@ -1,0 +1,19 @@
+<div class="layout layout--col gap--space-between">
+  <div class="title_bar">
+    <span class="title">📻 Lähiradio</span>
+    <span class="label">nyt {{ current_time }}</span>
+  </div>
+
+  {% if programs.size == 0 %}
+    <div class="description">Ei ohjelmaa seuraavaan 24h</div>
+  {% else %}
+    {% assign first = true %}
+    {% for prog in programs %}
+      <div class="item{% if first %} item--highlight{% endif %}">
+        <span class="label label--underline">{{ prog.time }}</span>
+        <span class="description">{{ prog.title }}</span>
+      </div>
+      {% assign first = false %}
+    {% endfor %}
+  {% endif %}
+</div>

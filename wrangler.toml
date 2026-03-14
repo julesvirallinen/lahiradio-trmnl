@@ -1,0 +1,7 @@
+name = "lahiradio-trmnl"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Optional: add a secret token here and set TRMNL_TOKEN secret via `wrangler secret put TRMNL_TOKEN`
+# to protect the endpoint from unauthorized polling
